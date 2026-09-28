@@ -1,0 +1,222 @@
+{
+  "evaluation": {
+    "dgp": "submitted Setting B",
+    "n_eval_trajectories_per_training_seed": 1000,
+    "n_eval_rows_per_training_seed": 5000,
+    "evaluation_seed_rule": "evaluation_seed = training_seed + 700000",
+    "unit_normalization_applied": true,
+    "oracle_u_used": false
+  },
+  "control": "reward_only_unit_sphere",
+  "treatment": "reward_plus_propensity_unit_sphere_lambda_1",
+  "seed_results": [
+    {
+      "training_seed": 1,
+      "evaluation_seed": 700001,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.44989858814604333,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.017388843536376954,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.018526598739624024
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.03865058480853088,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.04117949962005667
+      },
+      "treatment_minus_control": 0.0011377552032470692
+    },
+    {
+      "training_seed": 2,
+      "evaluation_seed": 700002,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.4529806633780896,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.016844503021240236,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.01858401756286621
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.037185920687260385,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.041026072557438675
+      },
+      "treatment_minus_control": 0.0017395145416259743
+    },
+    {
+      "training_seed": 3,
+      "evaluation_seed": 700003,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.44631783962119514,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.01758946132659912,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.01947188491821289
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.039410168640195704,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.04362784363434661
+      },
+      "treatment_minus_control": 0.0018824235916137695
+    },
+    {
+      "training_seed": 4,
+      "evaluation_seed": 700004,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.4440189038550736,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.0177511022567749,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.01959038200378418
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.0399782579134712,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.044120603500652805
+      },
+      "treatment_minus_control": 0.00183927974700928
+    },
+    {
+      "training_seed": 5,
+      "evaluation_seed": 700005,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.4611252485225945,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.016936336517333984,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.019059012985229492
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.03672827842673231,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.04133153204317683
+      },
+      "treatment_minus_control": 0.0021226764678955075
+    },
+    {
+      "training_seed": 6,
+      "evaluation_seed": 700006,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.45755239385831953,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.017513828277587892,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.01922079544067383
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.03827720827750936,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.04200785680213384
+      },
+      "treatment_minus_control": 0.0017069671630859373
+    },
+    {
+      "training_seed": 7,
+      "evaluation_seed": 700007,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.46678416094292513,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.01718954772949219,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.01947463150024414
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.036825473458157884,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.0417208490127525
+      },
+      "treatment_minus_control": 0.002285083770751952
+    },
+    {
+      "training_seed": 8,
+      "evaluation_seed": 700008,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.4500113274130168,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.01756585464477539,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.019843163299560547
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.03903424997267589,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.04409480848767314
+      },
+      "treatment_minus_control": 0.0022773086547851554
+    },
+    {
+      "training_seed": 9,
+      "evaluation_seed": 700009,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.4446589847334693,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.01741805648803711,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.019049681854248046
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.03917171829661234,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.04284110410063234
+      },
+      "treatment_minus_control": 0.0016316253662109377
+    },
+    {
+      "training_seed": 10,
+      "evaluation_seed": 700010,
+      "n_eval_trajectories": 1000,
+      "n_eval_rows": 5000,
+      "reward_variance": 0.4604853726643427,
+      "reward_head_mse": {
+        "reward_only_unit_sphere": 0.01746703109741211,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.020710054779052734
+      },
+      "mse_over_reward_variance": {
+        "reward_only_unit_sphere": 0.03793178271081412,
+        "reward_plus_propensity_unit_sphere_lambda_1": 0.04497440311562018
+      },
+      "treatment_minus_control": 0.0032430236816406235
+    }
+  ],
+  "aggregate": {
+    "reward_only_unit_sphere": {
+      "mean": 0.017366456489562986,
+      "std": 0.00027589416561955816,
+      "median": 0.01744254379272461,
+      "min": 0.016844503021240236,
+      "max": 0.0177511022567749
+    },
+    "reward_plus_propensity_unit_sphere_lambda_1": {
+      "mean": 0.01935302230834961,
+      "std": 0.0006031017434590927,
+      "median": 0.01934634017944336,
+      "min": 0.018526598739624024,
+      "max": 0.020710054779052734
+    },
+    "mse_over_reward_variance": {
+      "reward_only_unit_sphere": {
+        "mean": 0.038319364319196005,
+        "std": 0.0010718681430304344,
+        "median": 0.038463896543020126,
+        "min": 0.03672827842673231,
+        "max": 0.0399782579134712
+      },
+      "reward_plus_propensity_unit_sphere_lambda_1": {
+        "mean": 0.04269245728744836,
+        "std": 0.001357984083374356,
+        "median": 0.04242448045138309,
+        "min": 0.041026072557438675,
+        "max": 0.04497440311562018
+      }
+    },
+    "treatment_minus_control": {
+      "mean": 0.0019865658187866206,
+      "std": 0.0005281162327009328,
+      "median": 0.0018608516693115248,
+      "min": 0.0011377552032470692,
+      "max": 0.0032430236816406235,
+      "negative_is_favorable": true,
+      "treatment_better_seed_count": 0,
+      "ties": 0,
+      "bootstrap_mean_95ci": [
+        0.0016850710697174068,
+        0.0023331526756286613
+      ],
+      "bootstrap_repetitions": 20000,
+      "bootstrap_seed": 20260724
+    }
+  }
+}

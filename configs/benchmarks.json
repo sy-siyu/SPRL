@@ -1,0 +1,22 @@
+{
+  "protocol": "Corrected camera-ready NeurIPS 2026 SPRL neural-teacher confirmation",
+  "methods": ["raw", "balanced", "world_model", "sprl_neural"],
+  "seeds": [101, 200],
+  "conditions": {"ihdp": [0.3, 0.5, 0.8], "halfcheetah": [0.5]},
+  "training": {"epochs": 100, "teacher_epochs": 100, "batch_size": 256,
+               "learning_rate": 0.001, "warmup_epochs": 25,
+               "ramp_epochs": 25, "lambda_prop": 1.0,
+               "alpha_mmd": 0.1, "torch_threads": 10,
+               "torch_interop_threads": 14},
+  "ihdp": {"source_columns": [5, 30], "source_shape": [747, 30],
+           "n_training": 5000, "n_fresh": 10000, "latent_dim": 2,
+           "n_instrument": 10, "conf_strength": 2.0,
+           "fresh_seed": "20260925+300000+1000*round(10*w_u)+seed",
+           "readout": "additive, standardized Z, C=10"},
+  "halfcheetah": {"minari_dataset": "mujoco/halfcheetah/medium-v0",
+                  "source_episodes": 1000, "episode_length": 1000,
+                  "split_episodes": [50, 10, 10], "latent_dim": 4,
+                  "conf_dims": [0, 1, 8, 11, 12], "conf_strength": 0.5,
+                  "readout": "interaction, standardized Z, C=min(1,5/d), clipped probabilities"},
+  "smoke": "--smoke changes training epochs and sample/split sizes; never cite smoke outputs as paper results"
+}

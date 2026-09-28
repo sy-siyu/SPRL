@@ -1,0 +1,19 @@
+# Saved numeric results
+
+These files contain the completed, unrounded seed-level *summary statistics* used by the corrected camera-ready tables. They contain no observations, individual trajectories, source dataset rows, model weights, logs, or file paths. No seed or outlier was removed. `seed` identifies an independent experimental repeat and permits paired comparisons within a condition.
+
+| File | Cells and seeds | Main use |
+| --- | --- | --- |
+| `setting_a_per_seed.csv` | 7 methods × 3 strengths × seeds 1–100 = 2,100 rows | Table 1 (empirical inclusion and width/Raw-State width) |
+| `setting_b_per_seed.csv` | 10 method/configurations × 3 strengths × seeds 1–100 = 3,000 rows | Table 2, Table 3 Setting B column, Figure 4 λ sweep and strength curves |
+| `benchmark_per_seed.csv` | IHDP: 4 methods × 3 strengths; HalfCheetah: 4 methods × 1 strength; seeds 101–200 = 1,600 rows | Table 3 IHDP and HalfCheetah columns; appendix benchmark tables |
+
+Setting A, Setting B, and IHDP use `w_u` in `{0.3, 0.5, 0.8}`; HalfCheetah uses `w_u=0.5` only. Methods are `raw`, `ae`, `vae`, `contrastive`, `balanced`, `ldm`, and `sprl`; the Setting B sweep additionally has `sprl_lambda_0.5`, `sprl_lambda_2.0`, and `sprl_lambda_5.0`. In Setting B, `ldm` is λ=0 and `sprl` is λ=1. Source names were harmonized (`world_model`→`ldm`, `sprl_neural`→`sprl`); values were not rounded or filtered.
+
+In Setting A, `interval_lower`, `interval_upper`, and `interval_width` are the corrected samplewise sensitivity interval; `includes_target` tests the analytic target 0.700. Raw-State rows are the corrected raw intervals paired to each seed. Table 1's W/R is the ratio of method mean width to Raw-State mean width, rather than the mean of seedwise ratios.
+
+In Setting B, `amplification_median` and `amplification_p95` are within-seed median and p95 fitted odds-ratio amplification, already normalized by nominal `exp(|w_u|)`; `gamma_z_median` and `gamma_z_p95` retain the corresponding unnormalized fitted odds-ratio diagnostics. `delta` retains the seed-level source diagnostic, `u_auc` is the within-seed linear probe AUC, and `transition_mse` is raw latent-transition MSE and is blank when not applicable. The Raw-State amplification reference is constructed as exactly 1. The five λ configurations are retained at every strength, even though the main ablation panel uses `w_u=0.3`. Each table or plot first computes the within-seed statistic and then takes its mean over 100 seeds.
+
+In `benchmark_per_seed.csv`, `benchmark` is `ihdp` or `halfcheetah`. The fitted `fresh_amplification_median` and `fresh_amplification_p95` come from evaluation readouts on fresh samples and are already normalized by nominal `exp(|w_u|)`. Unlike Setting B's constructed raw reference, IHDP and HalfCheetah Raw-State readouts are fitted and their amplification can differ from 1. `fit_amplification_p95` is the fit-sample diagnostic; `fresh_*` fields describe fresh-sample aggregate diagnostics, losses, or readout quality. Blank fields indicate metrics not applicable to a method or benchmark. HalfCheetah includes all high-p95 seeds, including Balanced 1177.009 and SPRL 95.727.
+
+From the repository root, run `python3 scripts/render_results.py --check --output outputs/tables` to regenerate nine CSV summaries and validate every rounded entry in main Tables 1–3. The appendix outputs include Setting A mean endpoints and paired width intervals, plus IHDP/HalfCheetah per-method and paired summaries. Mean and paired-mean brackets are pointwise 95% t intervals over the 100 seeds; inclusion brackets are Wilson intervals. Width-ratio and paired-difference brackets use the verification scripts' 10,000-draw NumPy bootstrap with the original fixed seed formulas. The renderer and tests use only these packaged CSVs and NumPy; no private data source or training run is required.

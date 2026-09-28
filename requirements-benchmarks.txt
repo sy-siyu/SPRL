@@ -1,0 +1,4 @@
+-r requirements.txt
+minari==0.5.3
+gymnasium==1.2.3
+h5py==3.16.0

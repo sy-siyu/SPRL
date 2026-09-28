@@ -1,0 +1,2100 @@
+{
+  "config": {
+    "K": 10,
+    "seed_start": 1,
+    "w_u": 0.3,
+    "conf_strength": 2.0,
+    "n_trajectories": 5000,
+    "latent_dim": 5,
+    "epochs": 200,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "warmup_epochs": 50,
+    "lambda_ramp_epochs": 50,
+    "grad_clip": 1.0,
+    "lambda_prop": 1.0,
+    "device": "cpu",
+    "torch_threads": 4
+  },
+  "seed_results": [
+    {
+      "seed": 1,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 2.3758963613614545,
+          "gamma_z_median": 1.9538904738982956,
+          "amplification_p95": 1.7601073149479605,
+          "amplification_median": 1.4474776642802938,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.12197232246398926,
+            "median_bandwidth": 1.2642070055007935,
+            "mean_offdiagonal_kernel_weight": 0.6412765383720398,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.218798821398195e-08,
+            "latent_coordinate_std_mean": 0.4030612111091614,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.4160126761295059,
+            "next_dynamics_linear_probe_standardized_mse": 0.7890072073440331
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.15198723492877825,
+              "raw_latent_norm": 0.9380103821048931
+            },
+            "last_epoch": {
+              "propensity_loss": 0.12241591980718837,
+              "raw_latent_norm": 2.8736734073989245
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.048883769661188126,
+              "p05": 0.239986389875412,
+              "median": 1.9080618619918823,
+              "mean": 2.9134678840637207,
+              "p95": 8.914156913757324,
+              "max": 24.784507751464844,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.00019818544387817383,
+              "median": 0.6992334723472595,
+              "mean": 0.9892678260803223,
+              "p95": 1.999680757522583
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 9.979453328456888,
+          "gamma_z_median": 5.596423320247853,
+          "amplification_p95": 7.392960858163678,
+          "amplification_median": 4.145932366287686,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.1925257295370102,
+            "median_bandwidth": 0.29845890402793884,
+            "mean_offdiagonal_kernel_weight": 0.5431216359138489,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.332000986233652e-08,
+            "latent_coordinate_std_mean": 0.13234379887580872,
+            "effective_rank_95": 4
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.009391387045022882,
+            "next_dynamics_linear_probe_standardized_mse": 0.6974778950866185
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.1290682438304838,
+              "reward": 0.1290682438304838,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.5686960138228474,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.003910442020706072,
+              "reward": 0.003910442020706072,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 4.118020403141878,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 1.1784005165100098,
+              "p05": 2.0684051513671875,
+              "median": 3.837571620941162,
+              "mean": 4.175297260284424,
+              "p95": 7.2179694175720215,
+              "max": 18.10456657409668,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.006424227729439735,
+              "median": 0.044651031494140625,
+              "mean": 0.09615492820739746,
+              "p95": 0.3847757875919342
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.0037118588387405355,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.5881068714604725,
+          "gamma_z_median": 2.023017121395298,
+          "amplification_p95": 1.9173167274494747,
+          "amplification_median": 1.4986879442807155,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.13164867460727692,
+            "median_bandwidth": 1.3032443523406982,
+            "mean_offdiagonal_kernel_weight": 0.6497382521629333,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.275977616430282e-08,
+            "latent_coordinate_std_mean": 0.27495962381362915,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.1898747179812637,
+            "next_dynamics_linear_probe_standardized_mse": 0.7308768937448513
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.1290682438304838,
+              "reward": 0.1290682438304838,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.5686960138228474,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.13465288064765688,
+              "reward": 0.005863168652226426,
+              "transition": 0.0,
+              "prop": 0.1287897117816064,
+              "raw_latent_norm": 6.652081046785627,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.2329888790845871,
+              "p05": 0.8740814924240112,
+              "median": 5.814310073852539,
+              "mean": 6.846606254577637,
+              "p95": 16.022428512573242,
+              "max": 32.091426849365234,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.000404211925342679,
+              "median": 0.7640177011489868,
+              "mean": 0.9891937375068665,
+              "p95": 1.9978336095809937
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.006206076437500862,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    },
+    {
+      "seed": 2,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 2.5277933090902507,
+          "gamma_z_median": 2.1336012267869466,
+          "amplification_p95": 1.872635341491391,
+          "amplification_median": 1.580610664472636,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.12476430088281631,
+            "median_bandwidth": 1.2771943807601929,
+            "mean_offdiagonal_kernel_weight": 0.6446908712387085,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.4496672185468924e-08,
+            "latent_coordinate_std_mean": 0.4354599416255951,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.4136650954583165,
+            "next_dynamics_linear_probe_standardized_mse": 0.7826073187768735
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.15344435828072683,
+              "raw_latent_norm": 0.9077480239223461
+            },
+            "last_epoch": {
+              "propensity_loss": 0.12337890864178842,
+              "raw_latent_norm": 2.9291641785174
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.03934497386217117,
+              "p05": 0.2205227166414261,
+              "median": 2.2091469764709473,
+              "mean": 2.9912891387939453,
+              "p95": 8.457180976867676,
+              "max": 17.20699119567871,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 8.022785186767578e-05,
+              "median": 0.993073582649231,
+              "mean": 0.9985588788986206,
+              "p95": 1.9998779296875
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 14.47094552666704,
+          "gamma_z_median": 6.818149836580081,
+          "amplification_p95": 10.72034011664754,
+          "amplification_median": 5.0510096302766,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.2065085470676422,
+            "median_bandwidth": 0.29420655965805054,
+            "mean_offdiagonal_kernel_weight": 0.5412505865097046,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.955655003551328e-08,
+            "latent_coordinate_std_mean": 0.12639391422271729,
+            "effective_rank_95": 4
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.008815234233074289,
+            "next_dynamics_linear_probe_standardized_mse": 0.6848536345324251
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.15513939839046526,
+              "reward": 0.15513939839046526,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.5935818490629294,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.004341423853623624,
+              "reward": 0.004341423853623624,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 4.154652549296009,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 1.4596692323684692,
+              "p05": 2.1202597618103027,
+              "median": 3.9295406341552734,
+              "mean": 4.200392723083496,
+              "p95": 7.047109127044678,
+              "max": 15.034693717956543,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.005802961997687817,
+              "median": 0.04579320549964905,
+              "mean": 0.10281480848789215,
+              "p95": 0.41531985998153687
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.004109041081972986,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.918924197881913,
+          "gamma_z_median": 2.447188264234997,
+          "amplification_p95": 2.162392230579689,
+          "amplification_median": 1.8129216555837522,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.14015412330627441,
+            "median_bandwidth": 1.3621561527252197,
+            "mean_offdiagonal_kernel_weight": 0.6663844585418701,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.48970887134692e-08,
+            "latent_coordinate_std_mean": 0.3607925772666931,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.16545562374973652,
+            "next_dynamics_linear_probe_standardized_mse": 0.720378375717795
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.15513939839046526,
+              "reward": 0.15513939839046526,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.5935818490629294,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.1410225579629139,
+              "reward": 0.005556760365333484,
+              "transition": 0.0,
+              "prop": 0.13546579756907054,
+              "raw_latent_norm": 7.179486318510406,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.264804869890213,
+              "p05": 0.9501345157623291,
+              "median": 6.216274261474609,
+              "mean": 7.002594947814941,
+              "p95": 15.649840354919434,
+              "max": 24.097869873046875,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.000545799732208252,
+              "median": 0.9694839715957642,
+              "mean": 0.9939066171646118,
+              "p95": 1.99884033203125
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.005818662321586821,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    },
+    {
+      "seed": 3,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 2.0960712108295576,
+          "gamma_z_median": 1.8821597950406233,
+          "amplification_p95": 1.5528077448289266,
+          "amplification_median": 1.3943382704006613,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.13033995032310486,
+            "median_bandwidth": 1.3500701189041138,
+            "mean_offdiagonal_kernel_weight": 0.665266752243042,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.8848543937319846e-08,
+            "latent_coordinate_std_mean": 0.4217016100883484,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.3943217027938378,
+            "next_dynamics_linear_probe_standardized_mse": 0.7773036707275655
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.14935610078427256,
+              "raw_latent_norm": 1.0789715291894213
+            },
+            "last_epoch": {
+              "propensity_loss": 0.137988042580534,
+              "raw_latent_norm": 3.708920958090802
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.024953894317150116,
+              "p05": 0.2934631109237671,
+              "median": 2.603555679321289,
+              "mean": 3.493711471557617,
+              "p95": 9.782867431640625,
+              "max": 21.153684616088867,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.00014340877532958984,
+              "median": 0.983031153678894,
+              "mean": 0.9991426467895508,
+              "p95": 1.9997073411941528
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 5.364650484453361,
+          "gamma_z_median": 3.790332779237226,
+          "amplification_p95": 3.9742308264720547,
+          "amplification_median": 2.8079475853061124,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.19123531877994537,
+            "median_bandwidth": 0.3164927065372467,
+            "mean_offdiagonal_kernel_weight": 0.5434255003929138,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.4193618603239884e-08,
+            "latent_coordinate_std_mean": 0.14463630318641663,
+            "effective_rank_95": 3
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.010192824082957876,
+            "next_dynamics_linear_probe_standardized_mse": 0.6541868293766977
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.18531969885284805,
+              "reward": 0.18531969885284805,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.6776966586404918,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.0036983122925597187,
+              "reward": 0.0036983122925597187,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 4.47979025938073,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 1.2120246887207031,
+              "p05": 2.023411512374878,
+              "median": 3.9637231826782227,
+              "mean": 4.426725387573242,
+              "p95": 8.186573028564453,
+              "max": 19.052608489990234,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.005278957076370716,
+              "median": 0.0440058708190918,
+              "mean": 0.09502729773521423,
+              "p95": 0.3816474676132202
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.003574854617529849,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.567579189317136,
+          "gamma_z_median": 2.116581591763688,
+          "amplification_p95": 1.9021094464893282,
+          "amplification_median": 1.5680022087380534,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.1358044147491455,
+            "median_bandwidth": 1.3648420572280884,
+            "mean_offdiagonal_kernel_weight": 0.6663243174552917,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.470348358154297e-08,
+            "latent_coordinate_std_mean": 0.3512558341026306,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.15184234814688738,
+            "next_dynamics_linear_probe_standardized_mse": 0.7100630816010839
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.18531969885284805,
+              "reward": 0.18531969885284805,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.6776966586404918,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.14529949989245863,
+              "reward": 0.005367700238617099,
+              "transition": 0.0,
+              "prop": 0.13993180018602586,
+              "raw_latent_norm": 6.016789051951195,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.19666162133216858,
+              "p05": 0.8651867508888245,
+              "median": 5.391876697540283,
+              "mean": 5.949012756347656,
+              "p95": 12.823386192321777,
+              "max": 29.68560791015625,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.0005335807800292969,
+              "median": 0.9446879625320435,
+              "mean": 0.9958229064941406,
+              "p95": 1.998847246170044
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.004635727470571227,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    },
+    {
+      "seed": 4,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 2.1133950260482015,
+          "gamma_z_median": 1.715223178156885,
+          "amplification_p95": 1.5656415427946213,
+          "amplification_median": 1.2706685829142246,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.11982666701078415,
+            "median_bandwidth": 1.2191009521484375,
+            "mean_offdiagonal_kernel_weight": 0.6277838945388794,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.6261830871353595e-08,
+            "latent_coordinate_std_mean": 0.43961286544799805,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.4185222487407282,
+            "next_dynamics_linear_probe_standardized_mse": 0.7832857589517875
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.15320489046220875,
+              "raw_latent_norm": 1.0761293589460605
+            },
+            "last_epoch": {
+              "propensity_loss": 0.11099863257639263,
+              "raw_latent_norm": 3.0237959963934764
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.04552384838461876,
+              "p05": 0.2504924237728119,
+              "median": 1.7492384910583496,
+              "mean": 2.8751096725463867,
+              "p95": 8.892240524291992,
+              "max": 17.433002471923828,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.00013575260527431965,
+              "median": 0.3747698664665222,
+              "mean": 0.9788379669189453,
+              "p95": 1.999834656715393
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 8.391558285034932,
+          "gamma_z_median": 6.153293022964887,
+          "amplification_p95": 6.216619277466506,
+          "amplification_median": 4.558471588606076,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.2133915275335312,
+            "median_bandwidth": 0.3308395445346832,
+            "mean_offdiagonal_kernel_weight": 0.5424426198005676,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.396000363726671e-08,
+            "latent_coordinate_std_mean": 0.14393819868564606,
+            "effective_rank_95": 4
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.013793301816985994,
+            "next_dynamics_linear_probe_standardized_mse": 0.6315048354124784
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.1350663540580747,
+              "reward": 0.1350663540580747,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.4929213082912016,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.003826956352580111,
+              "reward": 0.003826956352580111,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 3.5994262208743972,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 1.1215555667877197,
+              "p05": 1.8629707098007202,
+              "median": 3.2632062435150146,
+              "mean": 3.6021530628204346,
+              "p95": 6.239190578460693,
+              "max": 13.028206825256348,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.00619141198694706,
+              "median": 0.05498534440994263,
+              "mean": 0.12128192186355591,
+              "p95": 0.47085484862327576
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.0034886936181100824,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.631397311841074,
+          "gamma_z_median": 1.861542591577337,
+          "amplification_p95": 1.94938707446476,
+          "amplification_median": 1.3790646704155565,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.12696948647499084,
+            "median_bandwidth": 1.2252365350723267,
+            "mean_offdiagonal_kernel_weight": 0.6293337941169739,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.4496672185468924e-08,
+            "latent_coordinate_std_mean": 0.3241056799888611,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.1620817383292801,
+            "next_dynamics_linear_probe_standardized_mse": 0.7115354545453636
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.1350663540580747,
+              "reward": 0.1350663540580747,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.4929213082912016,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.13047653436660767,
+              "reward": 0.0059308796094692485,
+              "transition": 0.0,
+              "prop": 0.12454565538435566,
+              "raw_latent_norm": 5.772952332788584,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.17698778212070465,
+              "p05": 0.8070769906044006,
+              "median": 5.314591407775879,
+              "mean": 5.879581928253174,
+              "p95": 12.825126647949219,
+              "max": 18.529335021972656,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.0005674362182617188,
+              "median": 0.4618886411190033,
+              "mean": 0.9722040891647339,
+              "p95": 1.9986038208007812
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.005683398796064446,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    },
+    {
+      "seed": 5,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 2.055658329917748,
+          "gamma_z_median": 1.827406129624412,
+          "amplification_p95": 1.5228691462992177,
+          "amplification_median": 1.3537757574112215,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.11962231248617172,
+            "median_bandwidth": 1.2282099723815918,
+            "mean_offdiagonal_kernel_weight": 0.6309850215911865,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.91155481338501e-08,
+            "latent_coordinate_std_mean": 0.4444464147090912,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.42992334942431054,
+            "next_dynamics_linear_probe_standardized_mse": 0.8214892717417255
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.15238305614614972,
+              "raw_latent_norm": 1.19581481388637
+            },
+            "last_epoch": {
+              "propensity_loss": 0.13218943234913202,
+              "raw_latent_norm": 3.2464359925717723
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.01890982687473297,
+              "p05": 0.2236822247505188,
+              "median": 2.035093069076538,
+              "mean": 3.028459072113037,
+              "p95": 8.585015296936035,
+              "max": 18.71316146850586,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 8.797645568847656e-05,
+              "median": 0.9953899383544922,
+              "mean": 0.9990464448928833,
+              "p95": 1.999889612197876
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 13.089240246071933,
+          "gamma_z_median": 7.816862863104314,
+          "amplification_p95": 9.69674766917054,
+          "amplification_median": 5.790874437557936,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.19975969195365906,
+            "median_bandwidth": 0.30615857243537903,
+            "mean_offdiagonal_kernel_weight": 0.5424520969390869,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.3324021703483595e-08,
+            "latent_coordinate_std_mean": 0.14329282939434052,
+            "effective_rank_95": 3
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.014812512296882529,
+            "next_dynamics_linear_probe_standardized_mse": 0.6651244177943252
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.1743972580499795,
+              "reward": 0.1743972580499795,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.874275230327431,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.004361108779356035,
+              "reward": 0.004361108779356035,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 4.391538104232477,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 1.0309756994247437,
+              "p05": 1.9381221532821655,
+              "median": 3.8350019454956055,
+              "mean": 4.314999103546143,
+              "p95": 8.17831802368164,
+              "max": 33.580047607421875,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.004235571715980768,
+              "median": 0.04600405693054199,
+              "mean": 0.11208125203847885,
+              "p95": 0.4547441005706787
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.004062618702516302,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.37935895025972,
+          "gamma_z_median": 2.0419270392079527,
+          "amplification_p95": 1.7626724638945257,
+          "amplification_median": 1.5126967559479239,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.13914243876934052,
+            "median_bandwidth": 1.3628568649291992,
+            "mean_offdiagonal_kernel_weight": 0.6654080152511597,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.4625807049669675e-08,
+            "latent_coordinate_std_mean": 0.3033263087272644,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.1804143752531577,
+            "next_dynamics_linear_probe_standardized_mse": 0.7352862920917864
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.1743972580499795,
+              "reward": 0.1743972580499795,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.874275230327431,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.14896416823778832,
+              "reward": 0.005768471782342816,
+              "transition": 0.0,
+              "prop": 0.14319569663125642,
+              "raw_latent_norm": 6.886517792331929,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.19636444747447968,
+              "p05": 0.7577503323554993,
+              "median": 5.912348747253418,
+              "mean": 7.089366912841797,
+              "p95": 17.098026275634766,
+              "max": 35.38328170776367,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.0005043148994445801,
+              "median": 0.7114658951759338,
+              "mean": 0.9896261692047119,
+              "p95": 1.9987800121307373
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.0057173106893814475,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    },
+    {
+      "seed": 6,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 2.7023154059396903,
+          "gamma_z_median": 2.069795149425511,
+          "amplification_p95": 2.0019244907490354,
+          "amplification_median": 1.5333419597730573,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.14715400338172913,
+            "median_bandwidth": 1.394641637802124,
+            "mean_offdiagonal_kernel_weight": 0.6762081384658813,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.152487420583384e-08,
+            "latent_coordinate_std_mean": 0.3811149001121521,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.40946517210427946,
+            "next_dynamics_linear_probe_standardized_mse": 0.7735262788031422
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.1564413707475273,
+              "raw_latent_norm": 0.9182909730137611
+            },
+            "last_epoch": {
+              "propensity_loss": 0.13875272334078137,
+              "raw_latent_norm": 2.827993918438347
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.057399578392505646,
+              "p05": 0.2957736551761627,
+              "median": 2.209299087524414,
+              "mean": 2.8751893043518066,
+              "p95": 7.361231803894043,
+              "max": 16.731037139892578,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.00015747547149658203,
+              "median": 1.0843898057937622,
+              "mean": 0.9976768493652344,
+              "p95": 1.9998260736465454
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 6.9557031363252815,
+          "gamma_z_median": 5.332246698124504,
+          "amplification_p95": 5.1529116210427395,
+          "amplification_median": 3.9502255111405598,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.2162300944328308,
+            "median_bandwidth": 0.35216978192329407,
+            "mean_offdiagonal_kernel_weight": 0.5494489669799805,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.063812042431891e-08,
+            "latent_coordinate_std_mean": 0.1498642861843109,
+            "effective_rank_95": 4
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.015170062647001947,
+            "next_dynamics_linear_probe_standardized_mse": 0.6779606200506738
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.0910680275125315,
+              "reward": 0.0910680275125315,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.4794059420118526,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.003982824608398487,
+              "reward": 0.003982824608398487,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 3.532147526741028,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 1.0892068147659302,
+              "p05": 1.77430260181427,
+              "median": 3.1659913063049316,
+              "mean": 3.583554267883301,
+              "p95": 6.587673664093018,
+              "max": 20.815322875976562,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.008221268653869629,
+              "median": 0.06511208415031433,
+              "mean": 0.12635158002376556,
+              "p95": 0.46209007501602173
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.003656108477940454,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.8871241615880368,
+          "gamma_z_median": 2.3359944592135227,
+          "amplification_p95": 2.1388341842748457,
+          "amplification_median": 1.7305472587969135,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.15418106317520142,
+            "median_bandwidth": 1.43019700050354,
+            "mean_offdiagonal_kernel_weight": 0.6857461929321289,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.512832063596761e-08,
+            "latent_coordinate_std_mean": 0.2573867738246918,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.17470320176014387,
+            "next_dynamics_linear_probe_standardized_mse": 0.7048272071389559
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.0910680275125315,
+              "reward": 0.0910680275125315,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.4794059420118526,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.15278215120945657,
+              "reward": 0.005192133156126555,
+              "transition": 0.0,
+              "prop": 0.14759001782049938,
+              "raw_latent_norm": 8.775117251337791,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.25561609864234924,
+              "p05": 1.134168028831482,
+              "median": 8.21845817565918,
+              "mean": 8.936798095703125,
+              "p95": 19.230968475341797,
+              "max": 37.881752014160156,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.000400397228077054,
+              "median": 0.9427241086959839,
+              "mean": 0.9943425059318542,
+              "p95": 1.999152421951294
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.004615009124444908,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    },
+    {
+      "seed": 7,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 2.1995305831783454,
+          "gamma_z_median": 2.0161670543375974,
+          "amplification_p95": 1.6294523329652029,
+          "amplification_median": 1.4936132897914791,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.11709742993116379,
+            "median_bandwidth": 1.1448525190353394,
+            "mean_offdiagonal_kernel_weight": 0.6053854823112488,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.8624630604999766e-08,
+            "latent_coordinate_std_mean": 0.4433809816837311,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.42782160640879985,
+            "next_dynamics_linear_probe_standardized_mse": 0.8186124758933164
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.15798748923199518,
+              "raw_latent_norm": 1.0045874298227078
+            },
+            "last_epoch": {
+              "propensity_loss": 0.13043560711096744,
+              "raw_latent_norm": 3.175692001167609
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.0337575301527977,
+              "p05": 0.2780078649520874,
+              "median": 2.519103527069092,
+              "mean": 3.5541765689849854,
+              "p95": 9.969164848327637,
+              "max": 20.872297286987305,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.00013202428817749023,
+              "median": 1.0552990436553955,
+              "mean": 0.9998144507408142,
+              "p95": 1.999758243560791
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 8.651579681021982,
+          "gamma_z_median": 4.8802927577937565,
+          "amplification_p95": 6.4092478653808085,
+          "amplification_median": 3.615409797234644,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.21112659573554993,
+            "median_bandwidth": 0.26398229598999023,
+            "mean_offdiagonal_kernel_weight": 0.5418208241462708,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.415687016035008e-08,
+            "latent_coordinate_std_mean": 0.11551021039485931,
+            "effective_rank_95": 3
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.007176870740768345,
+            "next_dynamics_linear_probe_standardized_mse": 0.6908754797895145
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.13209635180858326,
+              "reward": 0.13209635180858326,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.6056215507643563,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.003640275443809069,
+              "reward": 0.003640275443809069,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 4.2927500812374815,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 1.3513758182525635,
+              "p05": 1.9778605699539185,
+              "median": 3.8268117904663086,
+              "mean": 4.349864959716797,
+              "p95": 7.9808573722839355,
+              "max": 23.374433517456055,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.003934594802558422,
+              "median": 0.03301423788070679,
+              "mean": 0.07965999096632004,
+              "p95": 0.3213534355163574
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.003646946211574973,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.496848570779299,
+          "gamma_z_median": 2.1115727302922567,
+          "amplification_p95": 1.8497109155164104,
+          "amplification_median": 1.5642915528951464,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.14209699630737305,
+            "median_bandwidth": 1.320727825164795,
+            "mean_offdiagonal_kernel_weight": 0.6559122800827026,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.198188818804738e-08,
+            "latent_coordinate_std_mean": 0.3424760699272156,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.17159445013815963,
+            "next_dynamics_linear_probe_standardized_mse": 0.7330033834113927
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.13209635180858326,
+              "reward": 0.13209635180858326,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.6056215507643563,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.14864466255720782,
+              "reward": 0.005629668202327222,
+              "transition": 0.0,
+              "prop": 0.14301499488706493,
+              "raw_latent_norm": 6.310724691468842,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.1804015189409256,
+              "p05": 0.7337426543235779,
+              "median": 5.531269073486328,
+              "mean": 6.618638515472412,
+              "p95": 16.18800926208496,
+              "max": 31.148841857910156,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.00045612757094204426,
+              "median": 0.8605190515518188,
+              "mean": 0.9931498169898987,
+              "p95": 1.998244285583496
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.005435621033827531,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    },
+    {
+      "seed": 8,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 2.7264028680582943,
+          "gamma_z_median": 2.169011312177971,
+          "amplification_p95": 2.019768921576478,
+          "amplification_median": 1.6068431009262023,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.06916726380586624,
+            "median_bandwidth": 0.863227367401123,
+            "mean_offdiagonal_kernel_weight": 0.5278688073158264,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.072340331617852e-08,
+            "latent_coordinate_std_mean": 0.4285794198513031,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.4121694554754157,
+            "next_dynamics_linear_probe_standardized_mse": 0.8193708098617052
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.1457693739509096,
+              "raw_latent_norm": 0.8755593018568292
+            },
+            "last_epoch": {
+              "propensity_loss": 0.1081351718048052,
+              "raw_latent_norm": 2.276570529353862
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.0685305967926979,
+              "p05": 0.23633995652198792,
+              "median": 1.5030322074890137,
+              "mean": 2.1727659702301025,
+              "p95": 6.27971887588501,
+              "max": 14.455501556396484,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.0002524256706237793,
+              "median": 0.7953363656997681,
+              "mean": 0.9912071824073792,
+              "p95": 1.9997131824493408
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 10.650019368782536,
+          "gamma_z_median": 6.629546381411776,
+          "amplification_p95": 7.88972839900731,
+          "amplification_median": 4.911288754204393,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.19987909495830536,
+            "median_bandwidth": 0.3619116246700287,
+            "mean_offdiagonal_kernel_weight": 0.5405349135398865,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.8127396351228526e-08,
+            "latent_coordinate_std_mean": 0.16493311524391174,
+            "effective_rank_95": 3
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.017191095528377373,
+            "next_dynamics_linear_probe_standardized_mse": 0.6662231250359059
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.1344197837122697,
+              "reward": 0.1344197837122697,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.4788768546921867,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.003863561064556089,
+              "reward": 0.003863561064556089,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 3.692077772957938,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 1.3362525701522827,
+              "p05": 1.974084496498108,
+              "median": 3.2679781913757324,
+              "mean": 3.7217679023742676,
+              "p95": 6.7207465171813965,
+              "max": 20.859893798828125,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.006241962313652039,
+              "median": 0.05923217535018921,
+              "mean": 0.14884400367736816,
+              "p95": 0.6383975148200989
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.003591318474438417,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.7453365089487733,
+          "gamma_z_median": 2.269274502403781,
+          "amplification_p95": 2.0337953077319892,
+          "amplification_median": 1.6811198991091596,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.08403514325618744,
+            "median_bandwidth": 0.8879226446151733,
+            "mean_offdiagonal_kernel_weight": 0.5334713459014893,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.994928832184996e-08,
+            "latent_coordinate_std_mean": 0.3061293959617615,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.17912784368241663,
+            "next_dynamics_linear_probe_standardized_mse": 0.7495334235955001
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.1344197837122697,
+              "reward": 0.1344197837122697,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.4788768546921867,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.11928427679350181,
+              "reward": 0.005408890288779322,
+              "transition": 0.0,
+              "prop": 0.11387538636217312,
+              "raw_latent_norm": 4.758009302372835,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.20437191426753998,
+              "p05": 0.6664948463439941,
+              "median": 4.093136787414551,
+              "mean": 4.70419979095459,
+              "p95": 10.911979675292969,
+              "max": 25.00051498413086,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.0007096529006958008,
+              "median": 0.6606865525245667,
+              "mean": 0.9815117120742798,
+              "p95": 1.9978642463684082
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.005011866638681474,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    },
+    {
+      "seed": 9,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 2.326278924840625,
+          "gamma_z_median": 1.87547728809836,
+          "amplification_p95": 1.7233498139098113,
+          "amplification_median": 1.3893877474980005,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.13122683763504028,
+            "median_bandwidth": 1.3065255880355835,
+            "mean_offdiagonal_kernel_weight": 0.6523230671882629,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 3.347583188428871e-08,
+            "latent_coordinate_std_mean": 0.4237223267555237,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.4328130878339851,
+            "next_dynamics_linear_probe_standardized_mse": 0.8177686809150078
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.14561852060106337,
+              "raw_latent_norm": 1.0070071387655881
+            },
+            "last_epoch": {
+              "propensity_loss": 0.11852069852911697,
+              "raw_latent_norm": 2.0921537292246914
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.047734618186950684,
+              "p05": 0.2104078084230423,
+              "median": 1.731594204902649,
+              "mean": 2.29545259475708,
+              "p95": 6.267692565917969,
+              "max": 18.259775161743164,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.00012916326522827148,
+              "median": 0.7075132131576538,
+              "mean": 0.9907795786857605,
+              "p95": 1.9998345375061035
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 7.706716286607104,
+          "gamma_z_median": 6.41150574537844,
+          "amplification_p95": 5.709275846743091,
+          "amplification_median": 4.749760278181867,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.20317073166370392,
+            "median_bandwidth": 0.31981900334358215,
+            "mean_offdiagonal_kernel_weight": 0.5411467552185059,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.160834166100358e-08,
+            "latent_coordinate_std_mean": 0.14617474377155304,
+            "effective_rank_95": 3
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.016134677769628708,
+            "next_dynamics_linear_probe_standardized_mse": 0.6919715538107585
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.14366602852028243,
+              "reward": 0.14366602852028243,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.6102658808231354,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.004194137645049059,
+              "reward": 0.004194137645049059,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 4.188397208038642,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 1.277348279953003,
+              "p05": 2.094099283218384,
+              "median": 3.881268262863159,
+              "mean": 4.255270481109619,
+              "p95": 7.496041297912598,
+              "max": 17.26218605041504,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.00522768497467041,
+              "median": 0.05129483342170715,
+              "mean": 0.12009959667921066,
+              "p95": 0.4903014004230499
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.004183353261128246,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.5279284626297414,
+          "gamma_z_median": 2.0001141908795015,
+          "amplification_p95": 1.8727354656960353,
+          "amplification_median": 1.481721036047606,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.11069286614656448,
+            "median_bandwidth": 1.075774908065796,
+            "mean_offdiagonal_kernel_weight": 0.5829705595970154,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.4625807049669675e-08,
+            "latent_coordinate_std_mean": 0.3144403100013733,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.18695845999472244,
+            "next_dynamics_linear_probe_standardized_mse": 0.7393760890451394
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.14366602852028243,
+              "reward": 0.14366602852028243,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.6102658808231354,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.12850925409976316,
+              "reward": 0.005683267099440706,
+              "transition": 0.0,
+              "prop": 0.12282598664870067,
+              "raw_latent_norm": 5.630638862142757,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.1967509686946869,
+              "p05": 0.833669900894165,
+              "median": 5.114232063293457,
+              "mean": 5.732440948486328,
+              "p95": 12.703483581542969,
+              "max": 25.63180923461914,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.0005488723982125521,
+              "median": 0.5845325589179993,
+              "mean": 0.9804889559745789,
+              "p95": 1.9979742765426636
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.005829680455697268,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    },
+    {
+      "seed": 10,
+      "gamma_s": 1.3498588075760032,
+      "n_rows": 25000,
+      "methods": {
+        "propensity_only_unit_sphere": {
+          "gamma_z_p95": 1.8816708209426225,
+          "gamma_z_median": 1.7410998263917374,
+          "amplification_p95": 1.3939760294794208,
+          "amplification_median": 1.2898384754167747,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.15232710540294647,
+            "median_bandwidth": 1.4357091188430786,
+            "mean_offdiagonal_kernel_weight": 0.6876885294914246,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.2719189963236204e-08,
+            "latent_coordinate_std_mean": 0.41360312700271606,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.40238993796897987,
+            "next_dynamics_linear_probe_standardized_mse": 0.7864286543645831
+          },
+          "training": {
+            "first_epoch": {
+              "propensity_loss": 0.15995676952357196,
+              "raw_latent_norm": 0.9141748307310805
+            },
+            "last_epoch": {
+              "propensity_loss": 0.14508461895189723,
+              "raw_latent_norm": 3.4639922526417948
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.02433200553059578,
+              "p05": 0.22725392878055573,
+              "median": 2.2842655181884766,
+              "mean": 3.267554759979248,
+              "p95": 9.221168518066406,
+              "max": 20.159259796142578,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 7.462501525878906e-05,
+              "median": 0.9942874312400818,
+              "mean": 0.9990978837013245,
+              "p95": 1.9998828172683716
+            }
+          },
+          "comparison_scope": "Stabilized propensity-only sufficiency baseline; not the submitted representation geometry.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_only_unit_sphere": {
+          "gamma_z_p95": 5.3776006835602415,
+          "gamma_z_median": 4.115217763385912,
+          "amplification_p95": 3.9838245699318877,
+          "amplification_median": 3.04862830118935,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.21882101893424988,
+            "median_bandwidth": 0.29215502738952637,
+            "mean_offdiagonal_kernel_weight": 0.5375475883483887,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.392052588286788e-08,
+            "latent_coordinate_std_mean": 0.13888747990131378,
+            "effective_rank_95": 3
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.011537416614978608,
+            "next_dynamics_linear_probe_standardized_mse": 0.6800719500188163
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.11729943700020715,
+              "reward": 0.11729943700020715,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.47217211857134,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.004041522491856345,
+              "reward": 0.004041522491856345,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 3.9590269205521564,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.9379599690437317,
+              "p05": 1.9345351457595825,
+              "median": 3.653775215148926,
+              "mean": 4.011948585510254,
+              "p95": 7.271857738494873,
+              "max": 12.696669578552246,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.005065327975898981,
+              "median": 0.04607856273651123,
+              "mean": 0.11901415884494781,
+              "p95": 0.5035998821258545
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.003665905448585227,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        },
+        "reward_plus_propensity_unit_sphere_lambda_1": {
+          "gamma_z_p95": 2.5431765401447053,
+          "gamma_z_median": 2.056022232882582,
+          "amplification_p95": 1.8840315193494879,
+          "amplification_median": 1.523138732246127,
+          "observable": {
+            "n_points": 1024,
+            "propensity_loss": 0.15042153000831604,
+            "median_bandwidth": 1.3782322406768799,
+            "mean_offdiagonal_kernel_weight": 0.6703789234161377,
+            "latent_norm_mean": 1.0,
+            "latent_norm_std": 4.152487420583384e-08,
+            "latent_coordinate_std_mean": 0.3629717230796814,
+            "effective_rank_95": 1
+          },
+          "task_fidelity": {
+            "probe_train_fraction": 0.8,
+            "reward_linear_probe_mse": 0.15965590202181826,
+            "next_dynamics_linear_probe_standardized_mse": 0.7187200710877276
+          },
+          "training": {
+            "first_epoch": {
+              "total": 0.11729943700020715,
+              "reward": 0.11729943700020715,
+              "transition": 0.0,
+              "prop": 0.0,
+              "raw_latent_norm": 1.47217211857134,
+              "normalized_latent_norm": 1.0
+            },
+            "last_epoch": {
+              "total": 0.15321273645576167,
+              "reward": 0.005705924557369887,
+              "transition": 0.0,
+              "prop": 0.14750681163705126,
+              "raw_latent_norm": 5.767440542882802,
+              "normalized_latent_norm": 1.0
+            }
+          },
+          "stabilization_geometry": {
+            "n_points": 1024,
+            "raw_latent_norm": {
+              "min": 0.1597062647342682,
+              "p05": 0.5859906077384949,
+              "median": 5.0994672775268555,
+              "mean": 5.742886543273926,
+              "p95": 13.081396102905273,
+              "max": 23.75084686279297,
+              "fraction_below_1e-6": 0.0
+            },
+            "unit_sphere_cosine_distance": {
+              "p05": 0.0006074041593819857,
+              "median": 0.8605523705482483,
+              "mean": 0.9928972721099854,
+              "p95": 1.9987127780914307
+            }
+          },
+          "trained_head": {
+            "in_sample_reward_mse": 0.005098277801735307,
+            "scope": "Descriptive full-training-data fit; not held-out generalization."
+          },
+          "comparison_scope": "Unit-sphere reward/reward+propensity pair with common initialization; stabilized follow-up, not submitted SPRL.",
+          "normalization": "unit_sphere_in_objective_and_evaluation"
+        }
+      },
+      "paired_warmup_audit": {
+        "epochs_compared": 50,
+        "maximum_reward_loss_difference": 0.0,
+        "passed": true,
+        "meaning": "Common initialization and minibatch RNG yielded identical training before the propensity penalty activated."
+      }
+    }
+  ],
+  "aggregate": {
+    "n_seeds": 10,
+    "methods": {
+      "propensity_only_unit_sphere": {
+        "amplification_p95": {
+          "mean": 1.7042532679042064,
+          "std": 0.19922636895960352,
+          "median": 1.676401073437507,
+          "min": 1.3939760294794208,
+          "max": 2.019768921576478
+        },
+        "amplification_median": {
+          "mean": 1.4359895512884553,
+          "std": 0.11063136535441928,
+          "median": 1.4209079673404776,
+          "min": 1.2706685829142246,
+          "max": 1.6068431009262023
+        },
+        "observable_propensity_loss": {
+          "mean": 0.12334981933236122,
+          "std": 0.021265649523904754,
+          "median": 0.12336831167340279,
+          "min": 0.06916726380586624,
+          "max": 0.15232710540294647
+        },
+        "latent_norm_mean": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "kernel_weight_mean": {
+          "mean": 0.63594771027565,
+          "std": 0.04270478599536363,
+          "median": 0.6429837048053741,
+          "min": 0.5278688073158264,
+          "max": 0.6876885294914246
+        },
+        "effective_rank_95": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "reward_probe_mse": {
+          "mean": 0.4157104332338159,
+          "std": 0.011575079068888054,
+          "median": 0.41483888579391115,
+          "min": 0.3943217027938378,
+          "max": 0.4328130878339851
+        },
+        "transition_probe_mse": {
+          "mean": 0.796940012737974,
+          "std": 0.018730743545628113,
+          "median": 0.7877179308543081,
+          "min": 0.7735262788031422,
+          "max": 0.8214892717417255
+        }
+      },
+      "reward_only_unit_sphere": {
+        "amplification_p95": {
+          "mean": 6.714588705002616,
+          "std": 2.1339584915957075,
+          "median": 6.312933571423658,
+          "min": 3.9742308264720547,
+          "max": 10.72034011664754
+        },
+        "amplification_median": {
+          "mean": 4.262954824998522,
+          "std": 0.8844579540996589,
+          "median": 4.352201977446881,
+          "min": 2.8079475853061124,
+          "max": 5.790874437557936
+        },
+        "observable_propensity_loss": {
+          "mean": 0.2052648350596428,
+          "std": 0.009103666433682161,
+          "median": 0.20483963936567307,
+          "min": 0.19123531877994537,
+          "max": 0.21882101893424988
+        },
+        "latent_norm_mean": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "kernel_weight_mean": {
+          "mean": 0.5423191487789154,
+          "std": 0.0028539651563356965,
+          "median": 0.5421317219734192,
+          "min": 0.5375475883483887,
+          "max": 0.5494489669799805
+        },
+        "effective_rank_95": {
+          "mean": 3.4,
+          "std": 0.48989794855663565,
+          "median": 3.0,
+          "min": 3.0,
+          "max": 4.0
+        },
+        "reward_probe_mse": {
+          "mean": 0.012421538277567855,
+          "std": 0.00327309609445305,
+          "median": 0.0126653592159823,
+          "min": 0.007176870740768345,
+          "max": 0.017191095528377373
+        },
+        "transition_probe_mse": {
+          "mean": 0.6740250340908214,
+          "std": 0.019149351981428173,
+          "median": 0.679016285034745,
+          "min": 0.6315048354124784,
+          "max": 0.6974778950866185
+        }
+      },
+      "reward_plus_propensity_unit_sphere_lambda_1": {
+        "amplification_p95": {
+          "mean": 1.9472985335446549,
+          "std": 0.12105813281126532,
+          "median": 1.9097130869694015,
+          "min": 1.7626724638945257,
+          "max": 2.162392230579689
+        },
+        "amplification_median": {
+          "mean": 1.5752191714060955,
+          "std": 0.12317170540295677,
+          "median": 1.5437151425706368,
+          "min": 1.3790646704155565,
+          "max": 1.8129216555837522
+        },
+        "observable_propensity_loss": {
+          "mean": 0.13151467368006706,
+          "std": 0.019603507112002296,
+          "median": 0.137473426759243,
+          "min": 0.08403514325618744,
+          "max": 0.15418106317520142
+        },
+        "latent_norm_mean": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "kernel_weight_mean": {
+          "mean": 0.6405668139457703,
+          "std": 0.04484369558090613,
+          "median": 0.6606601476669312,
+          "min": 0.5334713459014893,
+          "max": 0.6857461929321289
+        },
+        "effective_rank_95": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "reward_probe_mse": {
+          "mean": 0.17217086610575863,
+          "std": 0.011713057718507943,
+          "median": 0.17314882594915176,
+          "min": 0.15184234814688738,
+          "max": 0.1898747179812637
+        },
+        "transition_probe_mse": {
+          "mean": 0.7253600271979596,
+          "std": 0.013725190163900803,
+          "median": 0.7256276347313231,
+          "min": 0.7048272071389559,
+          "max": 0.7495334235955001
+        }
+      }
+    }
+  }
+}
