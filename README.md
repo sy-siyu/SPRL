@@ -16,7 +16,7 @@ Use Python 3.13 and run commands from the repository root. The release was
 checked on CPU; package versions are pinned below.
 
 ```bash
-git clone https://github.com/Sylvia-SiyuWang/SPRL.git
+git clone https://github.com/sy-siyu/SPRL.git
 cd SPRL
 python3.13 -m venv .venv
 source .venv/bin/activate
